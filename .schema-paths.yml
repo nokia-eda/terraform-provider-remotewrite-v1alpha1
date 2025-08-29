@@ -1,0 +1,207 @@
+app_group:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: PATCH
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: PATCH
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: PATCH
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: DELETE
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: DELETE
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: DELETE
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_destination:
+  - create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations
+      method: POST
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: GET
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: PUT
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_destination_list:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations
+      method: GET
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations
+      method: DELETE
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_destination_deleted_resources:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/_deleted
+      method: GET
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_export:
+  - create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports
+      method: POST
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: GET
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: PUT
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_export_list:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports
+      method: GET
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports
+      method: DELETE
+
+com.nokia.eda.remotewrite.v1alpha1.cluster_export_deleted_resources:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/_deleted
+      method: GET
+
+com.nokia.eda.remotewrite.v1alpha1.destination:
+  - create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations
+      method: POST
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: GET
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: PUT
+
+com.nokia.eda.remotewrite.v1alpha1.destination_list:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/destinations
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations
+      method: GET
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations
+      method: DELETE
+
+com.nokia.eda.remotewrite.v1alpha1.destination_deleted_resources:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/_deleted
+      method: GET
+
+com.nokia.eda.remotewrite.v1alpha1.export:
+  - create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports
+      method: POST
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: GET
+  - update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: PUT
+
+com.nokia.eda.remotewrite.v1alpha1.export_list:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/exports
+      method: GET
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports
+      method: GET
+  - delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports
+      method: DELETE
+
+com.nokia.eda.remotewrite.v1alpha1.export_deleted_resources:
+  - read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/_deleted
+      method: GET
+
+totalPaths: 25
+totalSchemas: 48
+usedSchemas: 19
+unusedSchemas: 29
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.remotewrite.v1alpha1.ClusterDestination_DeletedResourceEntry
+  - com.nokia.eda.remotewrite.v1alpha1.ClusterDestination_metadata
+  - com.nokia.eda.remotewrite.v1alpha1.ClusterExport_DeletedResourceEntry
+  - com.nokia.eda.remotewrite.v1alpha1.ClusterExport_metadata
+  - com.nokia.eda.remotewrite.v1alpha1.Destination_DeletedResourceEntry
+  - com.nokia.eda.remotewrite.v1alpha1.Destination_metadata
+  - com.nokia.eda.remotewrite.v1alpha1.Export_DeletedResourceEntry
+  - com.nokia.eda.remotewrite.v1alpha1.Export_metadata

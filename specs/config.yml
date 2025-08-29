@@ -1,0 +1,110 @@
+provider:
+  name: remotewrite
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/remotewrite.eda.nokia.com
+      method: GET
+
+  cluster_destination:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: GET
+
+  cluster_destination_list:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations
+      method: GET
+
+  cluster_export:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: GET
+
+  cluster_export_list:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports
+      method: GET
+
+  destination:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: GET
+
+  destination_list:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations
+      method: GET
+
+  export:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: GET
+
+  export_list:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  cluster_destination:
+    create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations
+      method: POST
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: GET
+    update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: PUT
+    delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterdestinations/{name}
+      method: DELETE
+
+  cluster_export:
+    create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports
+      method: POST
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: GET
+    update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: PUT
+    delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/clusterexports/{name}
+      method: DELETE
+
+  destination:
+    create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations
+      method: POST
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: GET
+    update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: PUT
+    delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/destinations/{name}
+      method: DELETE
+
+  export:
+    create:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports
+      method: POST
+    read:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: GET
+    update:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: PUT
+    delete:
+      path: /apps/remotewrite.eda.nokia.com/v1alpha1/namespaces/{namespace}/exports/{name}
+      method: DELETE
