@@ -39,7 +39,7 @@ Optional:
 
 - `authentication` (Attributes) Authentication details (username and password) for accessing the server. (see [below for nested schema](#nestedatt--spec--authentication))
 - `authorization` (Attributes) Authorization token for accessing the server. (see [below for nested schema](#nestedatt--spec--authorization))
-- `metadata_1` (Attributes) Configuration related to sending metadata to the remote server. (see [below for nested schema](#nestedatt--spec--metadata_1))
+- `metadata` (Attributes) Configuration related to sending metadata to the remote server. (see [below for nested schema](#nestedatt--spec--metadata))
 - `tls` (Attributes) TLS configuration for secure connection to the remote server. (see [below for nested schema](#nestedatt--spec--tls))
 - `url` (String) Remote server address for sending metrics.
 - `write_options` (Attributes) Remote write options such as: Flush interval, Retries, etc. (see [below for nested schema](#nestedatt--spec--write_options))
@@ -62,8 +62,8 @@ Optional:
 - `type` (String) Authorization type
 
 
-<a id="nestedatt--spec--metadata_1"></a>
-### Nested Schema for `spec.metadata_1`
+<a id="nestedatt--spec--metadata"></a>
+### Nested Schema for `spec.metadata`
 
 Optional:
 

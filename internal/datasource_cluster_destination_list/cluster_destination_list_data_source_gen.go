@@ -109,7 +109,7 @@ func ClusterDestinationListDataSourceSchema(ctx context.Context) schema.Schema {
 									Description:         "Authorization token for accessing the server.",
 									MarkdownDescription: "Authorization token for accessing the server.",
 								},
-								"metadata_1": schema.SingleNestedAttribute{
+								"metadata": schema.SingleNestedAttribute{
 									Attributes: map[string]schema.Attribute{
 										"include": schema.BoolAttribute{
 											Optional:            true,
@@ -283,7 +283,7 @@ func ClusterDestinationListDataSourceSchema(ctx context.Context) schema.Schema {
 			"kind": schema.StringAttribute{
 				Computed: true,
 			},
-			"labelselector": schema.StringAttribute{
+			"label_selector": schema.StringAttribute{
 				Optional:            true,
 				Computed:            true,
 				Description:         "a label selector string to filter the results based on CR labels",
@@ -299,7 +299,7 @@ type ClusterDestinationListModel struct {
 	Filter        types.String `tfsdk:"filter"`
 	Items         types.List   `tfsdk:"items"`
 	Kind          types.String `tfsdk:"kind"`
-	Labelselector types.String `tfsdk:"labelselector"`
+	LabelSelector types.String `tfsdk:"label_selector"`
 }
 
 var _ basetypes.ObjectTypable = ItemsType{}
@@ -1482,7 +1482,7 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`authorization expected to be basetypes.ObjectValue, was: %T`, authorizationAttribute))
 	}
 
-	metadata1Attribute, ok := attributes["metadata_1"]
+	metadata1Attribute, ok := attributes["metadata"]
 
 	if !ok {
 		diags.AddError(
@@ -1668,7 +1668,7 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`authorization expected to be basetypes.ObjectValue, was: %T`, authorizationAttribute))
 	}
 
-	metadata1Attribute, ok := attributes["metadata_1"]
+	metadata1Attribute, ok := attributes["metadata"]
 
 	if !ok {
 		diags.AddError(
@@ -1825,7 +1825,7 @@ var _ basetypes.ObjectValuable = SpecValue{}
 type SpecValue struct {
 	Authentication basetypes.ObjectValue `tfsdk:"authentication"`
 	Authorization  basetypes.ObjectValue `tfsdk:"authorization"`
-	Metadata1      basetypes.ObjectValue `tfsdk:"metadata_1"`
+	Metadata1      basetypes.ObjectValue `tfsdk:"metadata"`
 	Tls            basetypes.ObjectValue `tfsdk:"tls"`
 	Url            basetypes.StringValue `tfsdk:"url"`
 	WriteOptions   basetypes.ObjectValue `tfsdk:"write_options"`
@@ -1844,7 +1844,7 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	attrTypes["authorization"] = basetypes.ObjectType{
 		AttrTypes: AuthorizationValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["metadata_1"] = basetypes.ObjectType{
+	attrTypes["metadata"] = basetypes.ObjectType{
 		AttrTypes: Metadata1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["tls"] = basetypes.ObjectType{
@@ -1883,7 +1883,7 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["metadata_1"] = val
+		vals["metadata"] = val
 
 		val, err = v.Tls.ToTerraformValue(ctx)
 
@@ -2050,7 +2050,7 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		"authorization": basetypes.ObjectType{
 			AttrTypes: AuthorizationValue{}.AttributeTypes(ctx),
 		},
-		"metadata_1": basetypes.ObjectType{
+		"metadata": basetypes.ObjectType{
 			AttrTypes: Metadata1Value{}.AttributeTypes(ctx),
 		},
 		"tls": basetypes.ObjectType{
@@ -2075,7 +2075,7 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		map[string]attr.Value{
 			"authentication": authentication,
 			"authorization":  authorization,
-			"metadata_1":     metadata1,
+			"metadata":       metadata1,
 			"tls":            tls,
 			"url":            v.Url,
 			"write_options":  writeOptions,
@@ -2142,7 +2142,7 @@ func (v SpecValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 		"authorization": basetypes.ObjectType{
 			AttrTypes: AuthorizationValue{}.AttributeTypes(ctx),
 		},
-		"metadata_1": basetypes.ObjectType{
+		"metadata": basetypes.ObjectType{
 			AttrTypes: Metadata1Value{}.AttributeTypes(ctx),
 		},
 		"tls": basetypes.ObjectType{

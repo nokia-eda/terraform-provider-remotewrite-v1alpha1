@@ -23,7 +23,7 @@ description: |-
 
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
-- `labelselector` (String) a label selector string to filter the results based on CR labels
+- `label_selector` (String) a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -52,7 +52,7 @@ Optional:
 
 - `authentication` (Attributes) Authentication details (username and password) for accessing the server. (see [below for nested schema](#nestedatt--items--spec--authentication))
 - `authorization` (Attributes) Authorization token for accessing the server. (see [below for nested schema](#nestedatt--items--spec--authorization))
-- `metadata_1` (Attributes) Configuration related to sending metadata to the remote server. (see [below for nested schema](#nestedatt--items--spec--metadata_1))
+- `metadata` (Attributes) Configuration related to sending metadata to the remote server. (see [below for nested schema](#nestedatt--items--spec--metadata))
 - `tls` (Attributes) TLS configuration for secure connection to the remote server. (see [below for nested schema](#nestedatt--items--spec--tls))
 - `url` (String) Remote server address for sending metrics.
 - `write_options` (Attributes) Remote write options such as: Flush interval, Retries, etc. (see [below for nested schema](#nestedatt--items--spec--write_options))
@@ -75,8 +75,8 @@ Optional:
 - `type` (String) Authorization type
 
 
-<a id="nestedatt--items--spec--metadata_1"></a>
-### Nested Schema for `items.spec.metadata_1`
+<a id="nestedatt--items--spec--metadata"></a>
+### Nested Schema for `items.spec.metadata`
 
 Optional:
 
